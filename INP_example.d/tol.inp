@@ -1,0 +1,12 @@
+!This file is for specifying granular tolerances for each species/equation in
+!the system. The format is alternating columns of absolute and relative
+!tolerances with one pair of columns for each run in the MultiInput sequence.
+!If granular tolerances are not desired (e.g., for a first run), set ltol=F in
+!tube.inp and set the abstol and reltol values to the desired values. The
+!first column should be of the format 'name/phase/' (quotes and slashes required)
+!where name is the species name and phase is the phase name.
+0  !Number of non-default entries
+F !Is the energy balance affected? If so, put it last with a dummy string at the start.
+'CH3CH2OH/GAS/' 1E-6 1E-8
+'Energy'        1E-6 1E-8
+EOF

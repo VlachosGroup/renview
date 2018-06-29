@@ -1,0 +1,12 @@
+!This file is where one can specify which species have GA-derived
+!thermochemistry. This functionality is needed for the global sensitivity
+!analysis so that the reactor code knows which species need to have GA-related
+!perturbations applied.
+!Error distributions (mean/std dev) for gas/surf: enthalpy
+0.0 1.0 0.0 1.0
+!Error distributions (mean/std dev) for gas/surf: entropy
+0.0 1.0 0.0 1.0
+!List of species
+0   !Number of GA-derived species
+CH3CH2OH(S)/SURFACE/
+

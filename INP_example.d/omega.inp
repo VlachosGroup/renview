@@ -1,0 +1,10 @@
+!Specify each omega term and its corresponding reaction (one per line)
+!Each reaction should use summed stoichiometric coefficients.
+0   Number of non-zero entries
+0.5     CH4+FE(S)=CH3*FE*H(S)+FE(B)
+0.5     CH3*FE*H(S)=CH3+FE*H(S))
+0.5     FE*H(S)=O*H-FE(S)
+0.5     CH4+O*H-FE(S)=O*H-CH3*FE*H(S)
+0.5     O*H-CH3*FE*H(S)=CH3+O*H-FE*H(S)
+0.5     O*H-FE*H(S)+FE(B)=H2+FE(S)
+EOF

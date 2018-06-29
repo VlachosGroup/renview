@@ -1,0 +1,237 @@
+!This file is used for specifying the parameter distributions for the
+!sensitivity analysis. It is only used if lsen=T in tube.inp.
+!------------------------------------------------------------------------------
+!The following section defines the type of sensitivity analysis and optional
+!values used therein.
+!type -- Defines the type of sensitivity analysis (/required/). Currently
+!        options are
+!        0. Off/None (implied by lsen=F in tube.inp)
+!        1. FIM-based LSA. This comes for free and does not require any
+!           perturbations. It is essentially a time/distance averaged reaction
+!           rate. It is complementary to the RPA.
+!        2. Brute force local sensitivity analysis. This will solve the model
+!           the nominal parameter set plus k additional perturbations, where k
+!           is the number of perturbed parameters. Only one cycle is needed.
+!        3. Brute force global sensitivity analysis. This is like option (2),
+!           but it requires one additional model solution for each replicate,
+!           and to be reliable, many replicates are needed. By default, the
+!           nominal paremeter set is not used in sampling the parameter space.
+!           Instead, two unique points are selected to define the sampling
+!           scheme. The sampling scheme follows the radial algorithm of
+!           Saltelli and coworkers (/Comp. Phys. Comm./, 2010 & 2011)
+!           This option is required to carry out an uncertainty analysis.
+!The following entries are only used by the global sensitivity analysis. Dummy
+!values may be used here if a local sensitivity analysis is requested.
+!seed -- 32-bit signed integer. A 0 indicates to use the default defined in the code.
+!restart -- Read in previously stored PRNG state?
+!runs -- The maximum number of replicates to perform. If this is a restarted
+!        calculation, then this number will be reduced based on the previous
+!        number of replicates performed. Once it reaches zero an error will be
+!        generated, and this value will need to be reset higher.
+!output interval -- Write results after this many intervening replicates. This
+!                   number must be strictly positive (i.e., larger than 0). A
+!                   value of 1 means that output is written at every step.
+!new vector on failure -- Should a failed solution result in the immediate
+!                         trial of a new design vector (T), or should the
+!                         simulation continue on with the current design
+!                         vector (F)? This is important for catalyst screening
+!                         to ensure the same set of kinetic parameters are used
+!                         at every simulation point.
+!flush -- flush output after every replicate for GSA (T) or not (F)
+!type   seed     restart    runs      output interval   new vector     flush
+ 3      0        T          4         1                 F              T
+!The following is applied to all SA types
+!output precision -- How many decimal places to write in tube_w_sen.out and
+!                    tube_rate_sen.out for each species concentration or
+!                    reaction rate
+!fix EA -- whether to fix the activation energies during species property
+!          perturbations (T) or fix the transition state energies (F)
+!precision   fix EA
+8            F
+!The following applies only to local sensitivity analyses
+!relative perturbation -- Perturb by a fraction of the nominal value (T) or use
+!                         one value for all parameters (F). The perturbation
+!                         amount is specified as the mean of the distribution.
+!                         Perturbations to pre-exponentials are always relative
+!                         owing to the use of multiplication by an exponential.
+F
+!------------------------------------------------------------------------------
+!Parameter types perturbed (these definitions correspond to those in DOE.inp).
+!Input formats for each perturbation type. Options requiring an on/off value
+!are set via Boolean entry as T/F in the order specified. Error distributions
+!for GA, LSR, and BEP estimates are specified in GA.inp, BEP.inp, and
+!Scale.inp, respectively. Additional instructions are given in those files.
+!For local sensitivity analyses, the mean of the DFT distribution is assumed to
+!be the perturbation amount. Other contributions to the perturbation are
+!ignored. Note: It is also currently considered an error to specify both a
+!per-species or per-reaction quantity together with a corresponding
+!correlation. For example, either a species enthalpy or LSR parameter type is
+!allowed, but not both. This is intended to eliminate possible independence
+!issues. This restriction may be revisited at a future date. NOTE: The slopes
+!and intercepts for the BEPs and LSRs are specified together as a single
+!parameter type in the input, but they are treated as separate parameters for
+!the purposes of perturbation. This allows for the calculation of sensitivity
+!indices for the slopes and intercepts separately. At the moment only the LSR
+!slopes are actually perturbed, although this may change later.
+! 1 = Species enthalpies (kcal/mol)
+!   Line 1 -- 1
+!   Line 2 -- types of errors on/off: DFT, GA, LSR
+!   Line 3 -- types of constraints on/off: single BE, rxn energy; if both /F/,
+!             then a non-thermodynamically consistent perturbation of all
+!             species energies is performed using the species error
+!             distributions.
+!   Line 4 -- DFT species error distributions: gas mean, gas sd, surf mean, surf sd
+!   Line 5 -- DFT reaction error distributions: gas mean, gas sd, surf mean, surf sd
+! 2 = Species entropies (cal/mol-K)
+!   Line 1 -- 2
+!   Line 2 -- types of errors on/off: DFT, GA
+!   Line 3 -- types of constraints on/off: single BE, rxn energy; if both /F/,
+!             then a non-thermodynamically consistent perturbation of all
+!             species entropies is performed using the species error
+!             distributions.
+!   Line 4 -- DFT species error distributions: gas mean, gas sd, surf mean, surf sd
+!   Line 5 -- DFT reaction error distributions: gas mean, gas sd, surf mean, surf sd
+! 3 = Pre-exponentials (dimensionless)
+!   Line 1 -- 3
+!   Line 2 -- error distribution: gas mean, gas sd, surf mean, surf sd
+!             (note: the perturbation is actually exp(epsilon) for this case)
+! 4 = Beta parameters (dimensionless)
+!   Line 1 -- 4
+!   Line 2 -- error distribution: gas mean, gas sd, surf mean, surf sd
+! 5 = Activation energies (kcal/mol)
+!   Line 1 -- 5
+!   Line 2 -- types of errors on/off: DFT, BEP
+!   Line 3 -- DFT error distributions: gas mean, gas sd, surf mean, surf sd
+! 6 = BEP coefficients: (slope dimensionless & intercept kcal/mol) -- reactions
+!   Line 1 -- 6
+!   Line 2 -- correlation number
+!   Line 3 -- slope error distribution: mean, sd
+!   Line 4 -- intercept error distribution: mean, sd
+!   Lines 2-4 are repeated for each BEP correlation
+! 7 = LSR coefficients: (slope dimensionless & intercept kcal/mol) -- species
+!   Line 1 -- 7
+!   Line 2 -- correlation number
+!   Line 3 -- slope error distribution: mean, sd
+!   Line 4 -- intercept error distribution: mean, sd
+!   Lines 2-4 are repeated for each LSR correlation
+!------------------------------------------------------------------------------
+!Number of parameter types
+1
+!------------------------------------------------------------------------------
+!Parameter Type #1 -- Species Enthalpies
+!------------------------------------------------------------------------------
+1                !Parameter type
+T  F  F  T       !Options: DFT error, GA error, LSR error on/off
+T  T             !Options: single BE, rxn energy constraints
+3.0 0.1 1.0 0.1  !Distribution parameters (mean, std dev) for gas/surf (DFT): species
+3.0 0.1 1.0 0.1  !Distribution parameters (mean, std dev) for gas/surf (DFT): reactions
+!------------------------------------------------------------------------------
+!Parameter Type #3 -- Pre-exponentials
+!------------------------------------------------------------------------------
+!3                !Parameter type
+!1.0 1.0 -0.036 5.0  !Distribution parameters (mean, std dev) for gas/surf
+!------------------------------------------------------------------------------
+!Parameter Type #5 -- Activation Energies
+!------------------------------------------------------------------------------
+!5                !Parameter type
+!T  F             !Options: DFT error, BEP error on/off
+!0.0 1.0 0.0 5.0  !Distribution parameters (mean, std dev) for gas/surf
+!------------------------------------------------------------------------------
+!The following sections provide a location where species and reactions may be
+!listed explicitly as being perturbed. The species should be listed first,
+!followed by the reactions. Provisions are made for specifying all, some, or
+!none in order to reduce the amount of information entered here. These are
+!defined by the value of the first integer:
+! -1 -- All species/reactions
+!  0 -- No species/reactions
+! >0 -- This many species/reaction definitions follow and are listed by name
+!These sections work in conjunction with the previous section. That is, if
+!a parameter type pertaining to species (reactions) is perturbed, then the
+!species (reactions) listed below will be affected. If either the species or
+!reaction sections are not needed, they still must appear, but be sure to
+!complete them appropriately. NOTE: If the number of species/reactions listed
+!is larger than zero, this information is discarded, but the parsing will still
+!work as long as the proper number of lines is supplied as the first value.
+!------------------------------------------------------------------------------
+!Perturbed Species
+52
+CH3CH2OH(S)/SURFACE/
+CH3CHOH(S)/SURFACE/
+CH3COH(S)/SURFACE/
+CH2CH2OH(S)/SURFACE/
+CH2CHOH(S)/SURFACE/
+CH2COH(S)/SURFACE/
+CHCH2OH(S)/SURFACE/
+CHCHOH(S)/SURFACE/
+CHCOH(S)/SURFACE/
+CCH2OH(S)/SURFACE/
+CCHOH(S)/SURFACE/
+CCOH(S)/SURFACE/
+CH3CH2O(S)/SURFACE/
+CH3CHO(S)/SURFACE/
+CH3CO(S)/SURFACE/
+CH2CH2O(S)/SURFACE/
+CH2CHO(S)/SURFACE/
+CH2CO(S)/SURFACE/
+CHCH2O(S)/SURFACE/
+CHCHO(S)/SURFACE/
+CHCO(S)/SURFACE/
+CCH2O(S)/SURFACE/
+CCHO(S)/SURFACE/
+CCO(S)/SURFACE/
+CH3CH2(S)/SURFACE/
+CH3CH(S)/SURFACE/
+CH3C(S)/SURFACE/
+CH2CH2(S)/SURFACE/
+CH2CH(S)/SURFACE/
+CH2C(S)/SURFACE/
+CHCH(S)/SURFACE/
+CHC(S)/SURFACE/
+CC(S)/SURFACE/
+CH3OH(S)/SURFACE/
+CH2OH(S)/SURFACE/
+CHOH(S)/SURFACE/
+COH(S)/SURFACE/
+CH3O(S)/SURFACE/
+CH2O(S)/SURFACE/
+CHO(S)/SURFACE/
+CO(S)/SURFACE/
+CH3(S)/SURFACE/
+CH2(S)/SURFACE/
+CH(S)/SURFACE/
+C(S)/SURFACE/
+H2O(S)/SURFACE/
+OH(S)/SURFACE/
+O(S)/SURFACE/
+H(S)/SURFACE/
+CO2(S)/SURFACE/
+COOH(S)/SURFACE/
+CHOO(S)/SURFACE/
+!2
+!CH3CH2OH/GAS/
+!H2O/GAS/
+!CH3CH2OH(S)/SURFACE/
+!Perturbed Reactions
+-1
+!2
+!CH3CH2OH+PT(S)<=>CH3CH2OH(S)+PT(B)
+!CH3CH2OH(S)+PT(S)<=>CH3CHOH(S)+H(S)+PT(B)
+!------------------------------------------------------------------------------
+!The following section is for specifying the basis set for constrained species
+!energy/entropy perturbations. Excluding pseudo-species (i.e., vacancies and
+!bulk sites) and inerts, the number of basis species needed is equal to the
+!number of elements used in those basis species (thus, if C, O, and H appear in
+!the adorbates, then three basis set species are required). The first species
+!is assumed to be the species which controls the location of the energy zero.
+!By modifying this species' energy/entropy, the energies/entropies of all
+!remaining species are perturbed according to the energies/entropies of
+!reaction. Additional perturbations to the reaction energies/entropies are then
+!applied and back-propagated to all other species but the basis species. If
+!no species properties are perturbed, this section is skipped.
+!------------------------------------------------------------------------------
+!Species basis set for rxn energy constraints
+3
+CH(S)/SURFACE/
+CO(S)/SURFACE/
+OH(S)/SURFACE/
+EOF
