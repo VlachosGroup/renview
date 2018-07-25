@@ -7,6 +7,7 @@ IF %ERRORLEVEL% EQU 0 (
 	cd OUT.d
 	COPY rpa_visualization.out ..\graphviz\bin\. >NUL
 	COPY rpa_visualizationNormalized.out ..\graphviz\bin\. >NUL
+	COPY rpa_visualizationMaxRateNormalized.out ..\graphviz\bin\. >NUL
 	cd ..
 	
 	cd Species.d
