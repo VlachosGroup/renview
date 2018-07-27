@@ -2,21 +2,29 @@
 
 # This script is designed to refine the visualization master file generated 
 #+ during simulation in CHEMKIN. Chemkin generates a visualization master file
-#+ including edges 
+#+ including edges and nodes corresponding to the Cutoffrate and EquilibriumTol 
+#+ provided in this file.
 #+ Author: Udit Gupta, Vlachos Research Group,
 #+ University of Delaware, 2018/06/21.
 
 Cutoffrate=1.0E-08
 EquilibriumTol=0.1
+NormalizationIndex=1
 EquilLower=0.5-$EquilibriumTol
 EquilUpper=0.5+$EquilibriumTol
 ActiveSpecies=" "
 ActiveSpeciesNumber=" "
-MaxReactionRate=" "
+ReactionRate=" "
 GasSpecies=" "
 GasReactions=" "
+NormalizationFactor=" "
 c=0
 count=0
+if [[ "$NormalizationIndex" =~ 1 ]]; then
+	NormalizationFactor=" NetRateInitial "
+elif [[ "$NormalizationIndex" =~ 2 ]]; then
+	NormalizationFactor=" MaxRateNetwork "
+fi
 input="OUT.d/rpa_visualizationMaster.out"
 echo "strict digraph G {" > RefinedVisualization.out
 echo "graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=48];" >> RefinedVisualization.out
@@ -34,8 +42,8 @@ echo "bgcolor=white;" >> RefinedVisualization.out
 while IFS= read -r line
 do 
 	arr=($line)
-	if [[ " ${arr[0]} " =~ " MaxRate " ]]; then
-			MaxReactionRate="${arr[1]}"
+	if [[ " ${arr[0]} " =~ "$NormalizationFactor" ]]; then
+			ReactionRate="${arr[1]}"
 	elif [[ " ${arr[0]} " =~ " GasSpecies " ]]; then
 			GasSpecies="${arr[1]}"
 	elif [[ " ${arr[0]} " =~ " GasReactions " ]]; then
@@ -59,19 +67,19 @@ do
 		if (( $(echo $(awk 'BEGIN{print ('${arr[1]}'>'$Cutoffrate')?1:0}')) )); then
 			count=count+1
 			if (( $(echo $(awk 'BEGIN{print ('${arr[7]}'>='$EquilLower')?1:0}')) )) && (( $(echo $(awk 'BEGIN{print ('${arr[7]}'<='$EquilUpper')?1:0}')) )); then
-				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
-				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
-				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
+				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
+				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
+				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
 				echo "edge[dir=\"forward\",style=\"setlinewidth("$RESULT1")\",color=green,weight=2,arrowsize="$RESULT2",label=\"  "$RESULT3"%\"];" >> RefinedVisualization.out
 			elif (( $(echo $(awk 'BEGIN{print ('${arr[9]}'<='$GasReactions')?1:0}')) )); then 
-				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
-				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
-				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
+				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
+				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
+				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
 				echo "edge[dir=\"forward\",style=\"setlinewidth("$RESULT1")\",color=red,weight=2,arrowsize="$RESULT2",label=\"  "$RESULT3"%\"];" >> RefinedVisualization.out
 			else 
-				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
-				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
-				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$MaxReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
+				RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", (dividend*100)/(divisor*5); exit(0)}')
+				RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*30)+1); exit(0)}')
+				RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
 				echo "edge[dir=\"forward\",style=\"setlinewidth("$RESULT1")\",color=black,weight=2,arrowsize="$RESULT2",label=\"  "$RESULT3"%\"];" >> RefinedVisualization.out
 			fi
 			echo "$ActiveSpecies->${arr[3]}" >> RefinedVisualization.out
