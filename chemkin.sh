@@ -14,7 +14,7 @@
 #  Define the path to the binary. For testing, this will be the local directory,
 #+ but for production runs, this will be the location of the compiled binary
 #+ on the server/cluster.
-CKPATH='/home/chemkin/chemkin_repo_testing_new/ugupta/current'
+CKPATH='/home/chemkin/chemkin_repo_testing_new/ugupta/UploadFiles'
 
 #printf 'Should previous results be discarded? Y/N: '
 #read delete_output_str
