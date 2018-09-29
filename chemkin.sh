@@ -14,7 +14,7 @@
 #  Define the path to the binary. For testing, this will be the local directory,
 #+ but for production runs, this will be the location of the compiled binary
 #+ on the server/cluster.
-CKPATH='/home/chemkin/chemkin_repo_testing_new/ugupta/UploadFiles'
+CKPATH='/home/chemkin/chemkin_repo_testing_new/ugupta/current'
 
 #printf 'Should previous results be discarded? Y/N: '
 #read delete_output_str
@@ -129,6 +129,7 @@ if [ 'Y' = $viz_flag ] || [ 'y' = $viz_flag ]; then
 	cd OUT.d
 	cp rpa_visualization.out ../graphviz/bin/
 	cp rpa_visualizationNormalized.out ../graphviz/bin/
+	cp rpa_visualizationMaxRateNormalized.out ../graphviz/bin/
 	cd ..
 	cp Species.d/* graphviz/bin/
 	cd graphviz/bin/

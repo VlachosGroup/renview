@@ -19,5 +19,5 @@ F     1.E-10 1.E-8    T                               10
 !mrpa verbose_rpa trpa    lsen   lDOE lViz  Cutoffrate  EquiTol
 1     F           900.0   F      F     T       1.0E-6     0.1
 !VisualizationElements
-C O Pt H He
+C O
 EOF 
