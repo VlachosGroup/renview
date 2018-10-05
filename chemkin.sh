@@ -127,7 +127,7 @@ if [ 'Y' = $viz_flag ] || [ 'y' = $viz_flag ]; then
 	#generate the svg file for visualization
 	echo 'Generating Visualization Files now!'
 	cd OUT.d
-	cp rpa_visualization.out ../graphviz/bin/
+	cp rpa_visualizationBasis100.out ../graphviz/bin/
 	cp rpa_visualizationNormalized.out ../graphviz/bin/
 	cp rpa_visualizationMaxRateNormalized.out ../graphviz/bin/
 	cd ..
@@ -136,7 +136,7 @@ if [ 'Y' = $viz_flag ] || [ 'y' = $viz_flag ]; then
 	#unflatten -c 10 rpa_visualization.out | dot -Tsvg -o rpa_visualization.svg
 	for i in *.out; do 
 		unflatten -c 10 $i | dot -Tsvg -o ${i%.*}.svg
-		#rm $i 2> /dev/null
+		rm $i 2> /dev/null
 		cp ${i%.*}.svg ../../Species.d/
 		rm ${i%.*}.svg 2> /dev/null
 		rm $i 2> /dev/null
