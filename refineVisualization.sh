@@ -7,11 +7,14 @@
 #+ Author: Udit Gupta, Vlachos Research Group,
 #+ University of Delaware, 2018/06/21.
 
-Cutoffrate=2.0E-02
-EquilibriumTol=0.1
+Cutoffrate=5.0E-06
+EquilibriumTol=0.05
 NormalizationIndex=1
 EquilLower=0.5-$EquilibriumTol
 EquilUpper=0.5+$EquilibriumTol
+NodeSep=0.25
+RankSep=0.25
+SplinesType="ortho" #Specify either ortho or spline
 ActiveSpecies=" "
 ActiveSpeciesNumber="0"
 ReactionRate=" "
@@ -26,20 +29,20 @@ if [[ "$NormalizationIndex" =~ 1 ]]; then
 elif [[ "$NormalizationIndex" =~ 2 ]]; then
 	NormalizationFactor=" MaxRateNetwork "
 fi
-input="OUT.d/rpa_visualizationMaster10.out"
+input="OUT.d/rpa_visualizationMaster2.out"
 if [ ! -d "RefinedSpecies.d" ]; then
   mkdir "RefinedSpecies.d"
 fi
 echo "digraph G {" > RefinedVisualization.out
-echo "graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=48];" >> RefinedVisualization.out
+echo "graph [splines = "$SplinesType", bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=48];" >> RefinedVisualization.out
 echo "node [shape=rectangle, style=filled, fontsize=35,width=0,height=0,fillcolor=cornsilk,shape=plaintext];" >> RefinedVisualization.out
 echo "edge [fontsize=30];" >> RefinedVisualization.out
 echo "label = \"Reaction Path Analysis\";" >> RefinedVisualization.out
 echo "labelloc = \"t\";" >> RefinedVisualization.out
 echo "center=1;" >> RefinedVisualization.out
 echo "size=\"20,20\";" >> RefinedVisualization.out
-echo "ranksep=\"1.0 equally\";" >> RefinedVisualization.out
-echo "nodesep=\"1.0 equally\";" >> RefinedVisualization.out
+echo "ranksep=\""$RankSep" equally\";" >> RefinedVisualization.out
+echo "nodesep=\""$NodeSep" equally\";" >> RefinedVisualization.out
 echo "rankdir=TB;" >> RefinedVisualization.out
 echo "bgcolor=white;" >> RefinedVisualization.out
 
@@ -60,13 +63,13 @@ do
 			for (( i=1; i<=TotalSpecies; i++ ))
 			do 
 				echo "digraph G {" > "RefinedSpecies.d/"$i".out"
-				echo "graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];" >> "RefinedSpecies.d/"$i".out"
+				echo "graph [splines = "$SplinesType", bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];" >> "RefinedSpecies.d/"$i".out"
 				echo "node [fontsize=12];" >> "RefinedSpecies.d/"$i".out"
 				echo "edge [fontsize=24];" >> "RefinedSpecies.d/"$i".out"
 				echo "center=1;" >> "RefinedSpecies.d/"$i".out"
 				echo "size=\"10,10\";" >> "RefinedSpecies.d/"$i".out"
-				echo "ranksep=\"1.0 equally\";" >> "RefinedSpecies.d/"$i".out"
-				echo "nodesep=\"1.0 equally\";" >> "RefinedSpecies.d/"$i".out"
+				echo "ranksep=\""$RankSep" equally\";" >> "RefinedSpecies.d/"$i".out"
+				echo "nodesep=\""$NodeSep" equally\";" >> "RefinedSpecies.d/"$i".out"
 				echo "rankdir=LR;" >> "RefinedSpecies.d/"$i".out"
 				echo "bgcolor=white;" >> "RefinedSpecies.d/"$i".out"
 			done
@@ -93,7 +96,7 @@ do
 			count=count+1
 			RESULT1=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*10)+1); exit(0)}')
 			RESULT2=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100)/(divisor*120)+1); exit(0)}')
-			RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", dividend*100/divisor; exit(0)}')
+			RESULT3=$(awk -v dividend="${arr[1]}" -v divisor="$ReactionRate" 'BEGIN {printf "%.0f", ((dividend*100/divisor)); exit(0)}')
 			RESULT4=$(awk -v dividend="${arr[11]}" -v divisor=20 'BEGIN {printf "%.0f", (-dividend/divisor)+1; exit(0)}')
 			RESULT5=$(awk -v dividend="${arr[11]}" -v divisor=60 'BEGIN {printf "%.0f", (-dividend/divisor)+1; exit(0)}')
 			RESULT6=$(awk -v dividend="${arr[11]}" -v divisor=1 'BEGIN {printf "%.2f", (dividend/divisor); exit(0)}')
