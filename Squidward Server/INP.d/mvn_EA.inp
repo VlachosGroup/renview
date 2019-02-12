@@ -1,0 +1,36 @@
+!This file is for specifying the multivariate normal distributions for
+!perturbing the activation energies given the reaction energies. Each
+!block of distribution parameters corresponds to a different homologous
+!series. Distribution parameters (means and covariances) are in kcal/mol
+!units (squared where appropriate...). The first line in each block is the
+!vector of means, while the next two are the symmetric covariance matrix.
+!Comments are allowed between homologous series blocks.
+!
+!Number of homologous series
+5
+!
+!Series 1: C-H cleavage
+3.2662 2.1754
+30.371 18.708
+18.708 15.517
+!
+!Series 2: O-H cleavage
+1.0101 0.50238
+6.7814 5.1233
+5.1233 9.0854
+!
+!Series 3: C-C cleavage
+1.371 1.1593
+13.985 7.2827
+7.2827 9.7506
+!
+!Series 4: C-OH cleavage
+1.1633 -0.18738
+10.691 4.2508
+4.2508 7.615
+!
+!Series 5: C-O cleavage
+2.5425 0.98015
+35.548 22.629
+22.629 21.08
+EOF

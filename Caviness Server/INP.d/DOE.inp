@@ -1,0 +1,46 @@
+! DOE.inp - preserve formatting of this file, or parsing errors may occur.
+! Number of gas phase species used as a thermochemical basis
+3
+! List the gas-phase species names separated by spaces (do not include the phase)
+CH3CH2OH CH3CHO H2O
+! Replicate the section below the %%%%'s for each separate run of the code,
+! excluding the 1st run (i.e. number of sections = n_runs-1).
+! The first line of each section lists the total number of parameters "X"
+! perturbed for a given run; a correlation counts as 1 parameter. The next
+! line is the species or reaction (given by the appropriate string) which
+! is affected. The third line has the perturbation value(s) being applied.
+! Line 1 - Flag for the parameter type (species/reaction/correlation number needed)
+!     The key for the type of parameter flag is as follows:
+!     1 = species enthalpy of formation (species)
+!     2 = species entropy (species)
+!     3 = pre-exponential factor (reaction)
+!     4 = beta parameter (reaction)
+!     5 = activation barrier (reaction)
+!     6 = correlation: linear scaling
+!     7 = correlation: BEP
+! Line 2 - Name of species or balanced reaction from surf.out or
+!          correlation number from BEP.inp or Scale.inp. The balanced
+!          reaction should be represented with summed stoichiometric
+!          coefficients.
+! Line 3 - Amount of perturbation
+!     BEPs: 2 entries (1st = slope, 2nd = intercept); otherwise: 1 entry
+!     Units: enthalpy, barrier, or BEP-intercept = kcal/mol
+!            entropy = cal/(mol K)
+!            all others = dimensionless or "as is"
+!     Perturbations of pre-exps. are multiplicative; the rest are additive.
+!     NOTE: for gas species only, a positive perturbation increases the BE
+!           of the corresponding surface species (and vice versa).
+! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+! *************************************************************************
+!1
+!CH3CH2OH+PT(S)<=>CH3CH2OH(S)+PT(B)
+!3  2 !Pre-exponential
+! *************************************************************************
+1
+CH3CH2OH/GAS/
+1  3 !Enthalpy kcal/mol
+! *************************************************************************
+!1
+!CH4/GAS/
+!1  4 !Enthalpy kcal/mol
+EOF
