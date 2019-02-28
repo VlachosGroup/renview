@@ -7,7 +7,7 @@
 #+ Author: Udit Gupta, Vlachos Research Group,
 #+ University of Delaware, 2018/06/21.
 
-Cutoffrate=5.0E-06
+Cutoffrate=1.0E-09
 EquilibriumTol=0.05
 NormalizationIndex=1
 EquilLower=0.5-$EquilibriumTol
@@ -24,12 +24,15 @@ NormalizationFactor=" "
 TotalSpecies=" "
 c=0
 count=0
+desiredreactions=5
+reactant_rates[desiredreactions]=0
+product_rates[desiredreactions]=0
 if [[ "$NormalizationIndex" =~ 1 ]]; then
 	NormalizationFactor=" NetRateInitial "
 elif [[ "$NormalizationIndex" =~ 2 ]]; then
 	NormalizationFactor=" MaxRateNetwork "
 fi
-input="OUT.d/rpa_visualizationMaster2.out"
+input="OUT.d/rpa_visualizationMaster5.out"
 if [ ! -d "RefinedSpecies.d" ]; then
   mkdir "RefinedSpecies.d"
 fi
@@ -145,22 +148,14 @@ do
 done
 
 echo "Finished generating visualization file!"
-cp RefinedVisualization.out graphviz/bin/
-cp RefinedSpecies.d/* graphviz/bin/
-cd graphviz/bin/
+cp RefinedVisualization.out RefinedSpecies.d/.
+cd RefinedSpecies.d
 #unflatten -c 10 RefinedVisualization.out | dot -Tsvg -o RefinedVisualization.svg
 for i in *.out; do 
 	unflatten -c 10 $i | dot -Tsvg -o ${i%.*}.svg
 	rm $i 2> /dev/null
-	cp ${i%.*}.svg ../../RefinedSpecies.d/
-	rm ${i%.*}.svg 2> /dev/null
-	rm $i 2> /dev/null
 done
-#cp RefinedVisualization.svg ../../.
-#rm RefinedVisualization.out 2> /dev/null
-#rm RefinedVisualization.svg 2> /dev/null
-cd ../../RefinedSpecies.d/
-for i in *.out; do
-	rm $i 2> /dev/null
-done
+#for i in *.out; do
+#	rm $i 2> /dev/null
+#done
 echo "Created Visualization file RefinedVisualization.svg!"
