@@ -9,7 +9,7 @@
 
 Cutoffrate=1.0E-09
 EquilibriumTol=0.05
-NormalizationIndex=1
+NormalizationIndex=2
 EquilLower=0.5-$EquilibriumTol
 EquilUpper=0.5+$EquilibriumTol
 NodeSep=0.25
@@ -32,7 +32,7 @@ if [[ "$NormalizationIndex" =~ 1 ]]; then
 elif [[ "$NormalizationIndex" =~ 2 ]]; then
 	NormalizationFactor=" MaxRateNetwork "
 fi
-input="OUT.d/rpa_visualizationMaster5.out"
+input="OUT.d/rpa_visualizationMaster.out"
 if [ ! -d "RefinedSpecies.d" ]; then
   mkdir "RefinedSpecies.d"
 fi
@@ -150,12 +150,8 @@ done
 echo "Finished generating visualization file!"
 cp RefinedVisualization.out RefinedSpecies.d/.
 cd RefinedSpecies.d
-#unflatten -c 10 RefinedVisualization.out | dot -Tsvg -o RefinedVisualization.svg
 for i in *.out; do 
 	unflatten -c 10 $i | dot -Tsvg -o ${i%.*}.svg
 	rm $i 2> /dev/null
 done
-#for i in *.out; do
-#	rm $i 2> /dev/null
-#done
 echo "Created Visualization file RefinedVisualization.svg!"
