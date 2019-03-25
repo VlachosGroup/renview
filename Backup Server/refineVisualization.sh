@@ -17,6 +17,9 @@ RankSep=0.25
 SplinesType="ortho" #Specify either ortho or spline
 ActiveSpecies=" "
 ActiveSpeciesNumber="0"
+ActiveSpeciesdHoRT="0.0"
+ActiveSpeciesdSoR="0.0"
+ActiveSpeciesCov="0.0"
 ReactionRate=" "
 GasSpecies=" "
 GasReactions=" "
@@ -35,7 +38,7 @@ if [ ! -d "RefinedSpecies.d" ]; then
 fi
 echo "digraph G {" > RefinedVisualization.out
 echo "graph [splines = "$SplinesType", bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=48];" >> RefinedVisualization.out
-echo "node [shape=rectangle, style=filled, fontsize=35,width=0,height=0,fillcolor=cornsilk,shape=plaintext];" >> RefinedVisualization.out
+echo "node [shape=rectangle,color=black,fontsize=35,width=0,height=0,shape=plaintext];" >> RefinedVisualization.out
 echo "edge [fontsize=30];" >> RefinedVisualization.out
 echo "label = \"Reaction Path Analysis\";" >> RefinedVisualization.out
 echo "labelloc = \"t\";" >> RefinedVisualization.out
@@ -45,8 +48,6 @@ echo "ranksep=\""$RankSep" equally\";" >> RefinedVisualization.out
 echo "nodesep=\""$NodeSep" equally\";" >> RefinedVisualization.out
 echo "rankdir=TB;" >> RefinedVisualization.out
 echo "bgcolor=white;" >> RefinedVisualization.out
-
-
 
 while IFS= read -r line
 do 
@@ -78,17 +79,50 @@ do
 		if [[ ActiveSpecies != "${arr[1]}" ]]; then
 			if [[ $count > 0 ]]; then
 				if (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesNumber'<='$GasSpecies')?1:0}')) )); then 
-					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
-					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo $ActiveSpecies"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo $ActiveSpecies"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
 				else
-					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
-					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					if (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.85)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.7)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.55)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.4)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.2)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.1)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.05)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>1.0E-05)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>1.0E-10)?1:0}')) )); then
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					else
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> RefinedVisualization.out
+						echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext,xlabel=\""$ActiveSpeciesdHoRT"\"];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					fi
 				fi
 			fi
 			count=0
 			ActiveSpecies="${arr[1]}"
 			ActiveSpeciesNumber="${arr[3]}"
-			
+			ActiveSpeciesdHoRT="${arr[5]}"
+			ActiveSpeciesdSoR="${arr[7]}"
+			if (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesNumber'>'$GasSpecies')?1:0}')) )); then
+				ActiveSpeciesCov="${arr[9]}"
+			fi			
 		fi
 	fi
 	if [[ " ${arr[0]} " =~ " Rate " ]]; then
@@ -125,15 +159,75 @@ do
 			echo "$ActiveSpecies->${arr[3]}" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
 			echo "$ActiveSpecies->${arr[3]}" >> "RefinedSpecies.d/"${arr[5]}".out"
 			if (( $(echo $(awk 'BEGIN{print ('${arr[5]}'<='$GasSpecies')?1:0}')) )); then
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
-				echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=cornsilk,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				echo ${arr[3]}"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+				echo ${arr[3]}"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+				echo ${arr[3]}"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				echo $ActiveSpecies"[shape=rectangle,color=black,fontsize=35,width=0,height=0,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
 			else
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
-				echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
-				echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				if (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.85)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.7)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.55)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.4)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.2)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.1)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>0.05)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>1.0E-05)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('${arr[21]}'>1.0E-10)?1:0}')) )); then
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				else
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""${arr[5]}".svg\",shape=plaintext];" >> RefinedVisualization.out
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"$ActiveSpeciesNumber".out"
+					echo ${arr[3]}"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""${arr[5]}".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				fi
+
+
+				if (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.85)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=coral,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.7)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orangered,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.55)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=red,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.4)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.2)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.1)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>0.05)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>1.0E-05)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				elif (( $(echo $(awk 'BEGIN{print ('$ActiveSpeciesCov'>1.0E-10)?1:0}')) )); then
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				else
+					echo $ActiveSpecies"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL=\""$ActiveSpeciesNumber".svg\",shape=plaintext];" >> "RefinedSpecies.d/"${arr[5]}".out"
+				fi
 			fi
 		fi
 	fi
@@ -160,7 +254,7 @@ done
 #rm RefinedVisualization.out 2> /dev/null
 #rm RefinedVisualization.svg 2> /dev/null
 cd ../../RefinedSpecies.d/
-for i in *.out; do
-	rm $i 2> /dev/null
-done
+#for i in *.out; do
+	#rm $i 2> /dev/null
+#done
 echo "Created Visualization file RefinedVisualization.svg!"
