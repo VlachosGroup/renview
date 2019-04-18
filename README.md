@@ -1,4 +1,6 @@
 # VisualizationTool-Chemkin
+The reaction path visualizer generates a graphic representation of the reaction fluxes within the system essential for identifying dominant reaction pathways and mechanism reduction.
+
 Files for using the Visualization tool in Chemkin
 
 1.	Accessing the files
