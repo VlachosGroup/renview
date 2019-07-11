@@ -6,18 +6,18 @@ The **Re**action **N**etwork **View**er (ReNView) generates a graphic representa
 Documentation
 -------------
 
-See our documentation page for examples, and equations used.
+See our [documentation page](https://github.com/VlachosGroup/ReNView/wiki/Manual) for examples, and equations used.
 
 Developer
 ---------
-Udit Gupta (<ugupta@udel.edu>)
+Udit Gupta (ugupta@udel.edu)
 
 Dependencies
 ------------
 
 - Python3
-- Numpy : Used for vector and matrix operations
-- Pandas: Used to import data from input files and process headers
+- [Numpy](http://www.numpy.org/) : Used for vector and matrix operations
+- [Pandas](https://pandas.pydata.org/): Used to import data from input files and process headers
 - Graphviz: Used to generate visualizations from text files
 
 Getting Started
@@ -79,8 +79,3 @@ Special Thanks
 -  Gerhard Wittreich (testing)
 -  Hilal Ezgi Toraman (testing)
 -  Jonathan Lym (testing)
-
-.. `documentation page`: https://vlachosgroup.github.io/renview/
-.. _Numpy: http://www.numpy.org/
-.. _Pandas: https://pandas.pydata.org/
-.. _LICENSE.md: https://github.com/VlachosGroup/pMuTT/blob/master/LICENSE.md
