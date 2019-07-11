@@ -50,21 +50,21 @@ Publications
 Contributing
 ------------
 
-If you have a suggestion or find a bug, please post to our `Issues page`_ with 
-the ``enhancement`` or ``bug`` tag respectively.
+If you have a suggestion or find a bug, please post to our Issues page with 
+the enhancement or bug tag respectively.
 
 Finally, if you would like to add to the body of code, please:
 
 - fork the development branch
 - make the desired changes
 - write the appropriate unit tests
-- submit a `pull request`_.
+- submit a pull request.
 
 Questions
 ---------
 
-If you are having issues, please post to our `Issues page`_ with the 
-``help wanted`` or ``question`` tag. We will do our best to assist.
+If you are having issues, please post to our Issues page with the 
+help wanted or question tag. We will do our best to assist.
 
 Funding
 -------
