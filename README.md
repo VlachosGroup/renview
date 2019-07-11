@@ -18,13 +18,13 @@ Dependencies
 - Python3
 - [Numpy](http://www.numpy.org/) : Used for vector and matrix operations
 - [Pandas](https://pandas.pydata.org/): Used to import data from input files and process headers
-- Graphviz: Used to generate visualizations from text files
+- [Graphviz](https://www.graphviz.org/): Used to generate visualizations from text files
 
 Getting Started
 ---------------
 1. Install using pip::
 
-  pip install --user renview
+>  pip install --user renview
   
 Files for using the Visualization tool
 --------------------------------------
