@@ -41,7 +41,7 @@ Features in the visualization tool:
 License
 -------
 
-This project is licensed under the GNU LGPL License - see the LICENSE.md file for details
+This project is licensed under the GNU LGPL License - see the [LICENSE.md](https://github.com/VlachosGroup/ReNView/blob/master/LICENSE.md) file for details
 
 Publications
 ------------
