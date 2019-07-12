@@ -264,13 +264,13 @@ Equilibrium_Lower = 0.5 - Equilibrium_Tolerance
 #pandas puts in the delimited \t between spaces and 
 #so it needs to be removed when reading in the file
 #Populating all elements provided in input species file
-input_species = pd.read_csv('species_comp.out', header = 0, delimiter = '\t')
+input_species = pd.read_csv('..\\example\\species_comp.out', header = 0, delimiter = '\t')
 for col in input_species.columns:
     if col != 'SpeciesName' and col != 'Phase':
         Elements_Available.append(col) 
 #print(Elements_Available)
 #Populating species datastructures
-with open('species_comp.out', 'r') as f_ptr:
+with open('..\\example\\species_comp.out', 'r') as f_ptr:
     next(f_ptr)
     for line in f_ptr:
         line = line.replace('\n', '')
@@ -289,7 +289,7 @@ with open('species_comp.out', 'r') as f_ptr:
 #print(openmkm_species_surf_cov)
         
 #reactions_read('rates_ss.out')
-with open('rates_ss.out') as f_ptr:
+with open('..\\example\\rates_ss.out', 'r') as f_ptr:
     for i in range(2):
         f_ptr.readline()
     for line in f_ptr:
@@ -336,7 +336,7 @@ stoich_matrix = np.zeros( (TotalSpecies, TotalReactions) )
 
 total_corelations = 0
 openmkm_reactions_list = []
-with open('reactions.out','r') as f_ptr:
+with open('..\\example\\reactions.out','r') as f_ptr:
     for line in f_ptr:
         line = line.replace('\n', '')
         reac_prod = line.split('<=>')

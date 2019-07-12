@@ -10,7 +10,7 @@ ReNView
 # present, too:
 #
 name = 'ReNView'
-__version__ = '1.1'
+__version__ = '1.1.0'
 
 import GraphGenerator
 import example

@@ -1,7 +1,7 @@
 README.md
 setup.cfg
 setup.py
-ReNView/GraphGenerator.py
+ReNView/__init__.py
 ReNView.egg-info/PKG-INFO
 ReNView.egg-info/SOURCES.txt
 ReNView.egg-info/dependency_links.txt
