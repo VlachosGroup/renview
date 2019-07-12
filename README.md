@@ -24,7 +24,7 @@ Getting Started
 ---------------
 1. Install using pip::
 
->>  pip install ReNView
+  >  pip install ReNView
   
 Files for using the Visualization tool
 --------------------------------------
