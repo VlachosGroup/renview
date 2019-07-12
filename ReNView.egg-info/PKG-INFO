@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: ReNView
+Version: 1.1
+Summary: Visualizer for complex reaction systems
+Home-page: https://github.com/VlachosGroup/ReNView
+Author: Udit Gupta
+Author-email: ugupta@udel.edu
+License: GNU Lesser GPL v3
+Download-URL: https://github.com/VlachosGroup/ReNView/archive/1.1.tar.gz
+Description: UNKNOWN
+Keywords: Reaction flux analysis,reaction path analysis,visualization,reaction network,graph representation,data compression
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6

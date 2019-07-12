@@ -1,0 +1,4 @@
+pandas
+graphviz
+numpy
+pydot
