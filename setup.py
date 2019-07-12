@@ -5,7 +5,6 @@ setup(
   packages = ['ReNView'],   # Chose the same as "name"
   version = '1.1',      # Start with a small number and increase it with every change you make
   license='GNU Lesser GPL v3',        # Chose a license from here: 
-https://help.github.com/articles/licensing-a-repository
   description = 'Visualizer for complex reaction systems',   # Give a short description about your library
   author = 'Udit Gupta',                   # Type in your name
   author_email = 'ugupta@udel.edu',      # Type in your E-Mail
