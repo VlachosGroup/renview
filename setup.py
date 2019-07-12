@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
   name = 'ReNView',         # How you named your package folder (MyLib)
