@@ -11,7 +11,7 @@ import pandas as pd
 from graphviz import *
 from subprocess import check_call
 
-from Legend.legend import *
+#from Legend.legend import generate_legend
 
 #Global variables specified here that are used for storing data
 species_filename = ''
@@ -46,7 +46,7 @@ Equilibrium_Lower = 0.5 - Equilibrium_Tolerance
 Rank_Sep = 0.25
 Node_Sep = 0.25
 
-def generate_legend1(fname, cov_def):
+def generate_legend(fname, cov_def):
     '''
     This function generates the legend.
     

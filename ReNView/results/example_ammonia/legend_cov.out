@@ -7,45 +7,13 @@ legend [width=2,label=<
 <TR>
       <TD COLSPAN="2"><B>Legend</B></TD>
      </TR>
-        <TR>
-            <TD bgcolor="coral">             </TD>
-            <TD >0.85+</TD>
+<TR>
+            <TD bgcolor="cornsilk"></TD>
+            <TD >Gas species</TD>
 </TR>
 <TR>
-            <TD bgcolor="orangered"></TD>
-            <TD >0.7-0.85</TD>
-</TR>
-<TR>
-            <TD bgcolor="red"></TD>
-            <TD >0.55-0.7</TD>
-</TR>
-<TR>
-            <TD bgcolor="darkorange"></TD>
-            <TD >0.4-0.55</TD>
-</TR>
-<TR>
-            <TD bgcolor="orange"></TD>
-            <TD >0.2-0.4</TD>
-</TR>
-<TR>
-            <TD bgcolor="gold"></TD>
-            <TD >0.1-0.2</TD>
-</TR>
-<TR>
-            <TD bgcolor="lawngreen"></TD>
-            <TD >0.05-0.1</TD>
-</TR>
-<TR>
-            <TD bgcolor="green"></TD>
-            <TD >1E-5-0.05</TD>
-</TR>
-<TR>
-            <TD bgcolor="dodgerblue"></TD>
-            <TD >1E-10-1E-5</TD>
-</TR>
-<TR>
-            <TD bgcolor="purple"></TD>
-            <TD >0.0-1E-10</TD>
+            <TD bgcolor="azure"></TD>
+            <TD >Surface species</TD>
 </TR>
         
     </TABLE>
