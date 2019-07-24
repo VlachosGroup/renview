@@ -1,7 +1,0 @@
-H2+2|RU(S1)<=>2|H(S1)+2|RU(B)
-N2+RU(S1)<=>N2(S1)+RU(B)
-NH3+RU(S1)<=>NH3(S1)+RU(B)
-NH3(S1)+RU(S1)<=>H(S1)+NH2(S1)+RU(B)
-NH2(S1)+RU(S1)<=>H(S1)+NH(S1)+RU(B)
-NH(S1)+RU(S1)<=>H(S1)+N(S1)+RU(B)
-N2(S1)+RU(S1)<=>2|N(S1)+RU(B)

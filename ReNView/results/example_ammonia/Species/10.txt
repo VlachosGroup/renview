@@ -1,0 +1,24 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"NH(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL="10.svg",shape=plaintext];
+"NH2(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL="9.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=2,label="   4   100%   2.34e-08 mol/s    5.01E-01"];
+"NH2(S1)"->"NH(S1)"
+"H(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL="7.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=2,label="   5   100%   2.34e-08 mol/s    5.00E-01"];
+"NH(S1)"->"H(S1)"
+"N(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=azure,URL="6.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=2,label="   5   100%   2.34e-08 mol/s    5.00E-01"];
+"NH(S1)"->"N(S1)"
+}

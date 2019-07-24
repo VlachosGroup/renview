@@ -1,9 +1,0 @@
-Rates (mol/s) and Partial Equilibrium Analysis:
-Fwd Rate    Rev Rate    Net Rate   Partial Equil.  Reaction String                 
-4.99E-01	4.99E-01	-3.51E-08	5.00E-01	H2+2|RU(S1)<=>2|H(S1)+2|RU(B)
-8.07E-02	8.07E-02	-1.17E-08	5.00E-01	N2+RU(S1)<=>N2(S1)+RU(B)
-5.49E-01	5.49E-01	2.34E-08	5.00E-01	NH3+RU(S1)<=>NH3(S1)+RU(B)
-2.50E-08	1.57E-09	2.34E-08	9.41E-01	NH3(S1)+RU(S1)<=>H(S1)+NH2(S1)+RU(B)
-6.11E-06	6.09E-06	2.34E-08	5.01E-01	NH2(S1)+RU(S1)<=>H(S1)+NH(S1)+RU(B)
-3.15E-04	3.15E-04	2.34E-08	5.00E-01	NH(S1)+RU(S1)<=>H(S1)+N(S1)+RU(B)
-6.93E-14	1.17E-08	-1.17E-08	5.92E-06	N2(S1)+RU(S1)<=>2|N(S1)+RU(B)

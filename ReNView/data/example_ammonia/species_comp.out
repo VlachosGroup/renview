@@ -1,0 +1,12 @@
+Species_name	Phase	N	H	RU
+H2	Gas	0	2	0
+N2	Gas	2	0	0
+NH3	Gas	1	3	0
+RU(B)	Surface	0	0	1
+RU(S1)	Surface	0	0	1
+N2(S1)	Surface	2	0	0
+N(S1)	Surface	1	0	0
+H(S1)	Surface	0	1	0
+NH3(S1)	Surface	1	3	0
+NH2(S1)	Surface	1	2	0
+NH(S1)	Surface	1	1	0

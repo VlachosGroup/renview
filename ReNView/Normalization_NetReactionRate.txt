@@ -1,0 +1,43 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=TB;
+bgcolor=white;
+edge[dir="forward",style="setlinewidth(8)",color=green,weight=2,arrowsize=2,label="   150%"];
+"H(S1)"->"H2"
+"H2"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="Species\0.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=green,weight=2,arrowsize=1,label="   50%"];
+"N2(S1)"->"N2"
+"N2"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="Species\1.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"NH3"->"NH3(S1)"
+"NH3"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="Species\2.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=black,weight=2,arrowsize=1,label="   50%"];
+"N(S1)"->"N2(S1)"
+"N2(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\5.svg",shape=plaintext];
+"N(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="Species\6.svg",shape=plaintext];
+"H(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL="Species\7.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=black,weight=2,arrowsize=1,label="   100%"];
+"NH3(S1)"->"H(S1)"
+edge[dir="forward",style="setlinewidth(6)",color=black,weight=2,arrowsize=1,label="   100%"];
+"NH3(S1)"->"NH2(S1)"
+"NH3(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\8.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"NH2(S1)"->"H(S1)"
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"NH2(S1)"->"NH(S1)"
+"NH2(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\9.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"NH(S1)"->"H(S1)"
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"NH(S1)"->"N(S1)"
+"NH(S1)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\10.svg",shape=plaintext];
+}
