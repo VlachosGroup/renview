@@ -80,3 +80,4 @@ Special Thanks
 -  Gerhard Wittreich (testing)
 -  Hilal Ezgi Toraman (testing)
 -  Jonathan Lym (testing)
+-  Jaynell Keely (Logo design)
