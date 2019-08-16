@@ -76,6 +76,7 @@ Award Number DE-EE0007888-9.5.
 Special Thanks
 --------------
 
+-  Dr. Jeffrey Frey (capsule compatibility)
 -  Gerhard Wittreich (testing)
 -  Hilal Ezgi Toraman (testing)
 -  Jonathan Lym (testing)
