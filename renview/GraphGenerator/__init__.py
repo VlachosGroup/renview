@@ -442,20 +442,25 @@ def generate_visualizations():
     #Populating all elements provided in input species file
     global rpa_local
     global is_surface_cov_def, header_count
-    input_species = pd.read_csv(species_filename, header = 0, delimiter = '\t')
-    for col in input_species.columns:
-        if col == 'Species_name':
-            header_count = header_count + 1
-        if col == 'Phase':
-            header_count = header_count + 1
-        if col == 'Surf_cov':
-            is_surface_cov_def = True
-            header_count = header_count + 1
-        if col != 'Species_name' and col != 'Phase' and col != 'Surf_cov':
-            Elements_Available.append(col) 
     #Populating species datastructures
     with open(species_filename, 'r') as f_ptr:
-        next(f_ptr)
+        '''Parse header'''
+        header_line = next(f_ptr)
+        # Split header by spaces or tabs
+        header_fields = header_line.split()
+        for col in header_fields:
+            # Skip empty spaces
+            if col.isspace():
+                continue
+            if col == 'Species_name':
+                header_count += 1
+            elif col == 'Phase':
+                header_count += 1
+            elif col == 'Surf_cov':
+                header_count += 1
+            else:
+                Elements_Available.append(col)
+
         for line in f_ptr:
             line = line.replace('\n', '')
             words = line.split()
@@ -471,8 +476,8 @@ def generate_visualizations():
     TotalSpecies = len(openmkm_species_list)        
     #Populating reactions datastructures 
     with open(reactions_filename, 'r') as f_ptr:
-        for i in range(1):
-            f_ptr.readline()
+        # Skip the header line
+        next(f_ptr)
         for line in f_ptr:
             line = line.replace('\n', '')
             words = line.split()
