@@ -13,7 +13,7 @@ from subprocess import check_call
 
 #from Legend.legend import generate_legend
 
-#Global variables specified here that are used for storing data
+'''Global variables specified here that are used for storing data'''
 species_filename = ''
 reactions_filename = ''
 output_directory_name = ''
@@ -37,7 +37,7 @@ Elements_Available = [] #gets populated based on the system under study
 is_surface_cov_def = False
 header_count = 0
 
-# Inputs from OpenMKM or any other chemical kinetics software
+'''Inputs from OpenMKM or any other chemical kinetics software'''
 InitialReactant = ''
 Reaction_Rate_Cutoff = ''
 Equilibrium_Tolerance = 0.05
@@ -351,12 +351,12 @@ def normalization(fname,normalization_rate,normalization_type,stm,rpa_l):
                             if abs(float(openmkm_reaction_netrate[j])) >= float(Reaction_Rate_Cutoff):
                                 if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
                                     if normalization_type == 1 or normalization_type == 2:
-                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + int(1)
-                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + int(1)
+                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + 1
+                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + 1
                                         edgelabel = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate)))
                                     elif normalization_type == 3:
-                                        linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                        arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                        linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                        arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                         edgelabel = abs(int(rpa_local[i][j]))
                                     else:
                                         linewidth = 0
@@ -369,12 +369,12 @@ def normalization(fname,normalization_rate,normalization_type,stm,rpa_l):
                                     f.write('"' + str(openmkm_species_list[i]) + '"->"' + str(prod) + '"\n')
                                 else:
                                     if normalization_type == 1 or normalization_type == 2:
-                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + int(1)
-                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + int(1)
+                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + 1
+                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + 1
                                         edgelabel = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate)))
                                     elif normalization_type == 3:
-                                        linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                        arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                        linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                        arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                         edgelabel = abs(int(rpa_local[i][j]))
                                     else:
                                         linewidth = 0
@@ -391,12 +391,12 @@ def normalization(fname,normalization_rate,normalization_type,stm,rpa_l):
                             if abs(float(openmkm_reaction_netrate[j])) >= float(Reaction_Rate_Cutoff):
                                 if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
                                     if normalization_type == 1 or normalization_type == 2:
-                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + int(1)
-                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + int(1)
+                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + 1
+                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + 1
                                         edgelabel = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate)))
                                     elif normalization_type == 3:
-                                        linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                        arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                        linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                        arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                         edgelabel = abs(int(rpa_local[i][j]))
                                     else:
                                         linewidth = 0
@@ -409,12 +409,12 @@ def normalization(fname,normalization_rate,normalization_type,stm,rpa_l):
                                     f.write('"' + str(prod) + '"->"' + str(openmkm_species_list[i]) + '"\n')
                                 else:
                                     if normalization_type == 1 or normalization_type == 2:
-                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + int(1)
-                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + int(1)
+                                        linewidth = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*20))) + 1
+                                        arrowsize = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate*120))) + 1
                                         edgelabel = abs(int(((float(openmkm_reaction_netrate[j]))*100)/(normalization_rate)))
                                     elif normalization_type == 3:
-                                        linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                        arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                        linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                        arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                         edgelabel = abs(int(rpa_local[i][j]))
                                     else:
                                         linewidth = 0
@@ -442,20 +442,25 @@ def generate_visualizations():
     #Populating all elements provided in input species file
     global rpa_local
     global is_surface_cov_def, header_count
-    input_species = pd.read_csv(species_filename, header = 0, delimiter = '\t')
-    for col in input_species.columns:
-        if col == 'Species_name':
-            header_count = header_count + 1
-        if col == 'Phase':
-            header_count = header_count + 1
-        if col == 'Surf_cov':
-            is_surface_cov_def = True
-            header_count = header_count + 1
-        if col != 'Species_name' and col != 'Phase' and col != 'Surf_cov':
-            Elements_Available.append(col) 
     #Populating species datastructures
     with open(species_filename, 'r') as f_ptr:
-        next(f_ptr)
+        '''Parse header'''
+        header_line = next(f_ptr)
+        # Split header by spaces or tabs
+        header_fields = header_line.split()
+        for col in header_fields:
+            # Skip empty spaces
+            if col.isspace():
+                continue
+            if col == 'Species_name':
+                header_count += 1
+            elif col == 'Phase':
+                header_count += 1
+            elif col == 'Surf_cov':
+                header_count += 1
+            else:
+                Elements_Available.append(col)
+
         for line in f_ptr:
             line = line.replace('\n', '')
             words = line.split()
@@ -471,8 +476,8 @@ def generate_visualizations():
     TotalSpecies = len(openmkm_species_list)        
     #Populating reactions datastructures 
     with open(reactions_filename, 'r') as f_ptr:
-        for i in range(1):
-            f_ptr.readline()
+        # Skip the header line
+        next(f_ptr)
         for line in f_ptr:
             line = line.replace('\n', '')
             words = line.split()
@@ -581,7 +586,7 @@ def generate_visualizations():
     if check_output == False:
         os.makedirs(output_directory_name)
     
-    species_output_dir = str(output_directory_name) + str('Species/')
+    species_output_dir = os.path.join(str(output_directory_name), 'Species/')
     #Check if species folder is present
     check_species = os.path.exists(species_output_dir)
     if check_species == False:
@@ -589,8 +594,9 @@ def generate_visualizations():
     
     filename = normalization_type(Normalization_requested)
     pre, ext = os.path.splitext(filename)
-    filename = str(output_directory_name) + str(filename)
-    filename_svg = str(output_directory_name) + str(pre) + str('.svg')
+    filename = os.path.join(str(output_directory_name), str(filename))
+    filename_svg = os.path.join(str(output_directory_name),
+                                str(pre) + '.svg')
     print_header(filename, Rank_Sep, Node_Sep)
     f = open(filename, "a+")
     
@@ -651,14 +657,14 @@ def generate_visualizations():
     f.write('}')
     f.close()
 
-    #Generate network visualization    
-    check_call(['dot','-Tsvg',f.name,'-o',filename_svg])
+    # Generate network visualization
+    # os.system('dot -Tsvg {} -o {}'.format(f.name, filename_svg))
+    check_call(['dot', '-Tsvg', f.name, '-o', filename_svg], shell=True)
     
     #Generate species visualizations in output/Species folder
     for i in range(len(openmkm_species_list)):
-        speciescounter = int(i)
-        fname = str(species_output_dir) + str(speciescounter) + str('.txt')
-        fname_svg = str(species_output_dir) + str(speciescounter) + str('.svg')
+        fname = os.path.join(str(species_output_dir), str(i) + '.txt')
+        fname_svg = os.path.join(str(species_output_dir), str(i) + '.svg')
         print_header_species(fname, Rank_Sep, Node_Sep)
         f = open(fname, "a+")
         color = get_color(openmkm_species_surf_cov[i],openmkm_species_phase[i])
@@ -671,8 +677,8 @@ def generate_visualizations():
                             color1 = get_color(openmkm_species_surf_cov[int(openmkm_species_list.index(prod))],openmkm_species_phase[int(openmkm_species_list.index(prod))])
                             f.write('"' + str(openmkm_species_list[int(openmkm_species_list.index(prod))]) + '"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=' + str(color1) + ',URL="' + str(int(openmkm_species_list.index(prod))) + '.svg",shape=plaintext];\n')
                             if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) < 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -680,8 +686,8 @@ def generate_visualizations():
                                     f.write('edge[dir="none",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
                                 f.write('"' + str(openmkm_species_list[i]) + '"->"' + str(prod) + '"\n')
                             else:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) < 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=black,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -695,8 +701,8 @@ def generate_visualizations():
                             color1 = get_color(openmkm_species_surf_cov[int(openmkm_species_list.index(reac))],openmkm_species_phase[int(openmkm_species_list.index(reac))])
                             f.write('"' + str(openmkm_species_list[int(openmkm_species_list.index(reac))]) + '"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=' + str(color1) + ',URL="' + str(int(openmkm_species_list.index(reac))) + '.svg",shape=plaintext];\n')
                             if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) < 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -704,8 +710,8 @@ def generate_visualizations():
                                     f.write('edge[dir="none",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
                                 f.write('"' + str(openmkm_species_list[i]) + '"->"' + str(reac) + '"\n')
                             else:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) < 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=black,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -719,8 +725,8 @@ def generate_visualizations():
                             color1 = get_color(openmkm_species_surf_cov[int(openmkm_species_list.index(prod))],openmkm_species_phase[int(openmkm_species_list.index(prod))])
                             f.write('"' + str(openmkm_species_list[int(openmkm_species_list.index(prod))]) + '"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=' + str(color1) + ',URL="' + str(int(openmkm_species_list.index(prod))) + '.svg",shape=plaintext];\n')
                             if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) > 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -728,8 +734,8 @@ def generate_visualizations():
                                     f.write('edge[dir="none",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
                                 f.write('"' + str(prod) + '"->"' + str(openmkm_species_list[i]) + '"\n')
                             else:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) > 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=black,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -743,8 +749,8 @@ def generate_visualizations():
                             color1 = get_color(openmkm_species_surf_cov[int(openmkm_species_list.index(reac))],openmkm_species_phase[int(openmkm_species_list.index(reac))])
                             f.write('"' + str(openmkm_species_list[int(openmkm_species_list.index(reac))]) + '"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=' + str(color1) + ',URL="' + str(int(openmkm_species_list.index(reac))) + '.svg",shape=plaintext];\n')
                             if float(openmkm_reaction_pei[j]) >= Equilibrium_Lower and float(openmkm_reaction_pei[j]) <= Equilibrium_Upper:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) > 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -752,8 +758,8 @@ def generate_visualizations():
                                     f.write('edge[dir="none",style="setlinewidth(' + str(linewidth) + ')",color=green,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
                                 f.write('"' + str(reac) + '"->"' + str(openmkm_species_list[i]) + '"\n')
                             else:
-                                linewidth = abs(int(rpa_local[i][j]/20)) + int(1)
-                                arrowsize = abs(int(rpa_local[i][j]/60)) + int(1)
+                                linewidth = abs(int(rpa_local[i][j]/20)) + 1
+                                arrowsize = abs(int(rpa_local[i][j]/60)) + 1
                                 edgelabel = abs(int(rpa_local[i][j]))
                                 if float(rpa_local[i][j]) > 0.0:
                                     f.write('edge[dir="forward",style="setlinewidth(' + str(linewidth) + ')",color=black,weight=2,arrowsize=' + str(arrowsize) + ',label="   ' + str(j) + '   ' + str(edgelabel) + '%   ' + str(abs(float(openmkm_reaction_netrate[j]))) + ' mol/s    ' + str(openmkm_reaction_pei[j]) + '"];\n')
@@ -763,12 +769,12 @@ def generate_visualizations():
         
         f.write('}')
         f.close()
-        check_call(['dot','-Tsvg',f.name,'-o',fname_svg])
+        check_call(['dot','-Tsvg', f.name,'-o', fname_svg], shell=True)
     
     #Generate legend for the visualizations
-    legend_output_file = str(output_directory_name) + str('legend_cov.out')
-    legend_output_file_svg = str(output_directory_name) + str('legend.svg')
+    legend_output_file = os.path.join(str(output_directory_name), 'legend_cov.out')
+    legend_output_file_svg = os.path.join(str(output_directory_name), 'legend.svg')
 #    generate_legend(legend_output_file, is_surface_cov_def)
     generate_legend(legend_output_file, is_surface_cov_def)
     #generate_legend(legend_output_file, True)
-    check_call(['dot','-Tsvg',legend_output_file,'-o',legend_output_file_svg])
+    check_call(['dot', '-Tsvg', legend_output_file, '-o', legend_output_file_svg], shell=True)

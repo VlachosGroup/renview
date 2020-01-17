@@ -10,10 +10,4 @@ ReNView
 # present, too:
 #
 name = 'ReNView'
-__version__ = '1.1'
-
-import GraphGenerator
-import example
-import Legend
-import Reactions
-
+__version__ = '1.2'
