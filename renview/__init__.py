@@ -11,9 +11,3 @@ ReNView
 #
 name = 'ReNView'
 __version__ = '1.1'
-
-# import renview.GraphGenerator
-# import renview.example
-# import Legend
-# import Reactions
-
