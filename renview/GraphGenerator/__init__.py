@@ -651,8 +651,9 @@ def generate_visualizations():
     f.write('}')
     f.close()
 
-    #Generate network visualization    
-    check_call(['dot','-Tsvg',f.name,'-o',filename_svg])
+    # Generate network visualization
+    # os.system('dot -Tsvg {} -o {}'.format(f.name, filename_svg))
+    check_call(['dot', '-Tsvg', f.name, '-o', filename_svg], shell=True)
     
     #Generate species visualizations in output/Species folder
     for i in range(len(openmkm_species_list)):
@@ -763,7 +764,7 @@ def generate_visualizations():
         
         f.write('}')
         f.close()
-        check_call(['dot','-Tsvg',f.name,'-o',fname_svg])
+        check_call(['dot','-Tsvg',f.name,'-o',fname_svg], shell=True)
     
     #Generate legend for the visualizations
     legend_output_file = str(output_directory_name) + str('legend_cov.out')
@@ -771,4 +772,4 @@ def generate_visualizations():
 #    generate_legend(legend_output_file, is_surface_cov_def)
     generate_legend(legend_output_file, is_surface_cov_def)
     #generate_legend(legend_output_file, True)
-    check_call(['dot','-Tsvg',legend_output_file,'-o',legend_output_file_svg])
+    check_call(['dot','-Tsvg',legend_output_file,'-o',legend_output_file_svg], shell=True)

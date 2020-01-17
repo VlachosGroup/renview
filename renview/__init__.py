@@ -12,8 +12,8 @@ ReNView
 name = 'ReNView'
 __version__ = '1.1'
 
-import GraphGenerator
-import example
-import Legend
-import Reactions
+# import renview.GraphGenerator
+# import renview.example
+# import Legend
+# import Reactions
 
