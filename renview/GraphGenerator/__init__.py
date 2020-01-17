@@ -586,7 +586,7 @@ def generate_visualizations():
     if check_output == False:
         os.makedirs(output_directory_name)
     
-    species_output_dir = str(output_directory_name) + str('Species/')
+    species_output_dir = os.path.join(str(output_directory_name), 'Species/')
     #Check if species folder is present
     check_species = os.path.exists(species_output_dir)
     if check_species == False:
@@ -594,11 +594,9 @@ def generate_visualizations():
     
     filename = normalization_type(Normalization_requested)
     pre, ext = os.path.splitext(filename)
-    filename = str(output_directory_name) + str(filename)
-    filename_svg = str(output_directory_name) + str(pre) + '.svg'
-    # filename = os.path.join(str(output_directory_name), str(filename))
-    # filename_svg = os.path.join(str(output_directory_name),
-    #                             str(pre) + str('.svg'))
+    filename = os.path.join(str(output_directory_name), str(filename))
+    filename_svg = os.path.join(str(output_directory_name),
+                                str(pre) + '.svg')
     print_header(filename, Rank_Sep, Node_Sep)
     f = open(filename, "a+")
     
@@ -665,9 +663,8 @@ def generate_visualizations():
     
     #Generate species visualizations in output/Species folder
     for i in range(len(openmkm_species_list)):
-        speciescounter = int(i)
-        fname = str(species_output_dir) + str(speciescounter) + str('.txt')
-        fname_svg = str(species_output_dir) + str(speciescounter) + str('.svg')
+        fname = os.path.join(str(species_output_dir), str(i) + '.txt')
+        fname_svg = os.path.join(str(species_output_dir), str(i) + '.svg')
         print_header_species(fname, Rank_Sep, Node_Sep)
         f = open(fname, "a+")
         color = get_color(openmkm_species_surf_cov[i],openmkm_species_phase[i])
@@ -772,12 +769,12 @@ def generate_visualizations():
         
         f.write('}')
         f.close()
-        check_call(['dot','-Tsvg',f.name,'-o',fname_svg], shell=True)
+        check_call(['dot','-Tsvg', f.name,'-o', fname_svg], shell=True)
     
     #Generate legend for the visualizations
-    legend_output_file = str(output_directory_name) + str('legend_cov.out')
-    legend_output_file_svg = str(output_directory_name) + str('legend.svg')
+    legend_output_file = os.path.join(str(output_directory_name), 'legend_cov.out')
+    legend_output_file_svg = os.path.join(str(output_directory_name), 'legend.svg')
 #    generate_legend(legend_output_file, is_surface_cov_def)
     generate_legend(legend_output_file, is_surface_cov_def)
     #generate_legend(legend_output_file, True)
-    check_call(['dot','-Tsvg',legend_output_file,'-o',legend_output_file_svg], shell=True)
+    check_call(['dot', '-Tsvg', legend_output_file, '-o', legend_output_file_svg], shell=True)
