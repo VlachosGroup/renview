@@ -24,6 +24,20 @@ def run(species_file, reactions_file, initial_reactant, reaction_cutoffrate,
     gg.generate_visualizations()
     gg.erase_data()
 
+def run_for_omkm(omkm_directory, initial_reactant, elements_desired,
+                 reaction_cutoffrate=1.e-9, normalization=2):
+    default_kwargs = {
+        'species_file': os.path.join(omkm_directory, r'species.out'),
+        'reactions_file': os.path.join(omkm_directory, r'rates_ss.out'),
+        'initial_reactant': initial_reactant,
+        'reaction_cutoffrate': reaction_cutoffrate,
+        'elements_desired': elements_desired,
+        'normalization': normalization,
+        'output_directory': omkm_directory,
+        }
+    run(**default_kwargs)
+
+
 if __name__ == "__main__":
     try:
         os.chdir(os.path.dirname(__file__))
