@@ -1,14 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import pydot
-import numpy as np
-import pandas as pd
-import graphviz
-import subprocess
-from graphviz import ENGINES
-from graphviz import Digraph
-from subprocess import check_call
 
 from renview import GraphGenerator as gg
 
@@ -39,6 +31,7 @@ def run_for_omkm(omkm_directory, initial_reactant, elements_desired,
 
 
 if __name__ == "__main__":
+    # Change the folder to the same directory as the script
     try:
         os.chdir(os.path.dirname(__file__))
     except:
