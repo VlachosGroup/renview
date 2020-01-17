@@ -595,7 +595,10 @@ def generate_visualizations():
     filename = normalization_type(Normalization_requested)
     pre, ext = os.path.splitext(filename)
     filename = str(output_directory_name) + str(filename)
-    filename_svg = str(output_directory_name) + str(pre) + str('.svg')
+    filename_svg = str(output_directory_name) + str(pre) + '.svg'
+    # filename = os.path.join(str(output_directory_name), str(filename))
+    # filename_svg = os.path.join(str(output_directory_name),
+    #                             str(pre) + str('.svg'))
     print_header(filename, Rank_Sep, Node_Sep)
     f = open(filename, "a+")
     
