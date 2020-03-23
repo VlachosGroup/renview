@@ -45,7 +45,7 @@ This project is licensed under the GNU LGPL License - see the [LICENSE.md](https
 
 Publications
 ------------
-- U. Gupta and D.G Vlachos, "Reaction Network Viewer (ReNView): An open source framework for reaction path visualization of chemical reaction systems"  (submitted)
+- Gupta, U.; Vlachos, D. G. Reaction Network Viewer (ReNView): An Open-Source Framework for Reaction Path Visualization of Chemical Reaction Systems. SoftwareX 2020, 11, 100442. https://doi.org/10.1016/J.SOFTX.2020.100442.
 
 Contributing
 ------------
