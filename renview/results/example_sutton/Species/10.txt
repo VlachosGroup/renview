@@ -1,0 +1,18 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"CO"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="10.svg",shape=plaintext];
+"CO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="54.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=2,label="   12   100%   2.95e-06 mol/s    5.00E-01"];
+"CO(S)"->"CO"
+}

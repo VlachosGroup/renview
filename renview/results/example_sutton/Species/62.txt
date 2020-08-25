@@ -1,0 +1,75 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"H(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="62.svg",shape=plaintext];
+"CH3CH3"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="2.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   4   0%   1.84e-08 mol/s    4.54E-01"];
+"H(S)"->"CH3CH3"
+"CH4"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="7.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   9   16%   5.44e-06 mol/s    3.20E-01"];
+"H(S)"->"CH4"
+"H2"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="8.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=green,weight=2,arrowsize=1,label="   10   49%   7.94e-06 mol/s    5.00E-01"];
+"H(S)"->"H2"
+"CH3CH2OH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="14.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   15   14%   4.77e-06 mol/s    9.99E-01"];
+"CH3CH2OH(S)"->"H(S)"
+"CH3CHOH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="15.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   16   14%   4.62e-06 mol/s    5.57E-01"];
+"CH3CHOH(S)"->"H(S)"
+"CH3CH2O(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="26.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   23   2%   7.05e-07 mol/s    9.91E-01"];
+"CH3CH2O(S)"->"H(S)"
+"CH3CHO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="27.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   24   2%   8.41e-07 mol/s    5.02E-01"];
+"CH3CHO(S)"->"H(S)"
+"CH3COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="16.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   39   12%   3.95e-06 mol/s    5.43E-01"];
+"CH3COH(S)"->"H(S)"
+"CH3CO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="28.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   48   4%   1.47e-06 mol/s    5.43E-01"];
+"CH3CO(S)"->"H(S)"
+"CH2CO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="31.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   51   16%   5.42e-06 mol/s    5.18E-01"];
+"CH2CO(S)"->"H(S)"
+"CH3CH2(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="38.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   55   0%   1.7e-08 mol/s    2.33E-01"];
+"H(S)"->"CH3CH2(S)"
+"CH3CH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="39.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   56   0%   1.78e-08 mol/s    5.00E-01"];
+"H(S)"->"CH3CH(S)"
+"CH3(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="55.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   66   16%   5.43e-06 mol/s    1.93E-02"];
+"H(S)"->"CH3(S)"
+"CH2(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="56.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   67   16%   5.43e-06 mol/s    5.00E-01"];
+"H(S)"->"CH2(S)"
+"CH3CH2OH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="14.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   69   2%   7.05e-07 mol/s    9.45E-01"];
+"CH3CH2OH(S)"->"H(S)"
+"CH3CHOH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="15.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   70   0%   1.53e-07 mol/s    5.55E-01"];
+"CH3CHOH(S)"->"H(S)"
+"CH3COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="16.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   71   2%   6.48e-07 mol/s    5.00E-01"];
+"CH3COH(S)"->"H(S)"
+"CH2COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="19.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   74   12%   3.95e-06 mol/s    5.00E-01"];
+"CH2COH(S)"->"H(S)"
+"H2O(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="59.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   150   7%   2.48e-06 mol/s    5.02E-01"];
+"H2O(S)"->"H(S)"
+"COOH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="64.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   156   7%   2.5e-06 mol/s    9.85E-01"];
+"COOH(S)"->"H(S)"
+}

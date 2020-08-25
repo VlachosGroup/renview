@@ -1,0 +1,24 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"CH2COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="19.svg",shape=plaintext];
+"CH3COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="16.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   39   99%   3.95e-06 mol/s    5.43E-01"];
+"CH3COH(S)"->"CH2COH(S)"
+"CH2CO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="31.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   74   99%   3.95e-06 mol/s    5.00E-01"];
+"CH2COH(S)"->"CH2CO(S)"
+"H(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="62.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   74   99%   3.95e-06 mol/s    5.00E-01"];
+"CH2COH(S)"->"H(S)"
+}

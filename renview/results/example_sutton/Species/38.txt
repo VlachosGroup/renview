@@ -1,0 +1,24 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"CH3CH2(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="38.svg",shape=plaintext];
+"CH3CH3"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=none,URL="2.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   4   99%   1.84e-08 mol/s    4.54E-01"];
+"CH3CH2(S)"->"CH3CH3"
+"CH3CH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="39.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=black,weight=2,arrowsize=2,label="   55   92%   1.7e-08 mol/s    2.33E-01"];
+"CH3CH(S)"->"CH3CH2(S)"
+"H(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="62.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=black,weight=2,arrowsize=2,label="   55   92%   1.7e-08 mol/s    2.33E-01"];
+"H(S)"->"CH3CH2(S)"
+}

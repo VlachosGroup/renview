@@ -1,0 +1,30 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"CH3CHOH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="15.svg",shape=plaintext];
+"CH3CH2OH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="14.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=black,weight=2,arrowsize=2,label="   15   100%   4.77e-06 mol/s    9.99E-01"];
+"CH3CH2OH(S)"->"CH3CHOH(S)"
+"CH3COH(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="16.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=black,weight=2,arrowsize=2,label="   16   96%   4.62e-06 mol/s    5.57E-01"];
+"CH3CHOH(S)"->"CH3COH(S)"
+"H(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="62.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=black,weight=2,arrowsize=2,label="   16   96%   4.62e-06 mol/s    5.57E-01"];
+"CH3CHOH(S)"->"H(S)"
+"CH3CHO(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="27.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   70   3%   1.53e-07 mol/s    5.55E-01"];
+"CH3CHOH(S)"->"CH3CHO(S)"
+"H(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="62.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=black,weight=2,arrowsize=1,label="   70   3%   1.53e-07 mol/s    5.55E-01"];
+"CH3CHOH(S)"->"H(S)"
+}

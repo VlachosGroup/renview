@@ -1,0 +1,290 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=TB;
+bgcolor=white;
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(0)(000000)"->"(1)(000001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(4)(000100)"->"(0)(000000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(0)(000000)"->"(8)(001000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(32)(100000)"->"(0)(000000)"
+"(0)(000000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\0.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(5)(000101)"->"(1)(000001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(1)(000001)"->"(9)(001001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(33)(100001)"->"(1)(000001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(1)(000001)"->"(34)(100010)"
+"(1)(000001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\1.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(5)(000101)"->"(4)(000100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(4)(000100)"->"(12)(001100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(36)(100100)"->"(4)(000100)"
+"(4)(000100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\4.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(5)(000101)"->"(13)(001101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(5)(000101)"->"(37)(100101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(38)(100110)"->"(5)(000101)"
+"(5)(000101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\5.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(8)(001000)"->"(9)(001001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(12)(001100)"->"(8)(001000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(8)(001000)"->"(16)(010000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(40)(101000)"->"(8)(001000)"
+"(8)(001000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\8.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(9)(001001)"->"(13)(001101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(9)(001001)"->"(17)(010001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(41)(101001)"->"(9)(001001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(9)(001001)"->"(42)(101010)"
+"(9)(001001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\9.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(13)(001101)"->"(12)(001100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(12)(001100)"->"(20)(010100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(44)(101100)"->"(12)(001100)"
+"(12)(001100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\12.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(13)(001101)"->"(21)(010101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(45)(101101)"->"(13)(001101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(13)(001101)"->"(46)(101110)"
+"(13)(001101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\13.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=1,label="   95%"];
+"(17)(010001)"->"(16)(010000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   4%"];
+"(20)(010100)"->"(16)(010000)"
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=1,label="   100%"];
+"(16)(010000)"->"(24)(011000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(16)(010000)"->"(48)(110000)"
+"(16)(010000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=gold,URL="Species\16.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(21)(010101)"->"(17)(010001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(17)(010001)"->"(25)(011001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(17)(010001)"->"(49)(110001)"
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=1,label="   96%"];
+"(50)(110010)"->"(17)(010001)"
+"(17)(010001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\17.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(21)(010101)"->"(20)(010100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(20)(010100)"->"(28)(011100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   4%"];
+"(50)(110010)"->"(20)(010100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(20)(010100)"->"(52)(110100)"
+"(20)(010100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\20.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(21)(010101)"->"(29)(011101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(51)(110011)"->"(21)(010101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(21)(010101)"->"(53)(110101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(54)(110110)"->"(21)(010101)"
+"(21)(010101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\21.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=1,label="   98%"];
+"(24)(011000)"->"(25)(011001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(28)(011100)"->"(24)(011000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(24)(011000)"->"(56)(111000)"
+"(24)(011000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=darkorange,URL="Species\24.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(25)(011001)"->"(29)(011101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(25)(011001)"->"(57)(111001)"
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=1,label="   99%"];
+"(25)(011001)"->"(58)(111010)"
+"(25)(011001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\25.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(29)(011101)"->"(28)(011100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(58)(111010)"->"(28)(011100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(28)(011100)"->"(60)(111100)"
+"(28)(011100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\28.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(59)(111011)"->"(29)(011101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(29)(011101)"->"(61)(111101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(29)(011101)"->"(62)(111110)"
+"(29)(011101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\29.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(32)(100000)"->"(33)(100001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(32)(100000)"->"(36)(100100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(32)(100000)"->"(40)(101000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(48)(110000)"->"(32)(100000)"
+"(32)(100000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\32.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(37)(100101)"->"(33)(100001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(33)(100001)"->"(41)(101001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(49)(110001)"->"(33)(100001)"
+"(33)(100001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\33.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(35)(100011)"->"(34)(100010)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(34)(100010)"->"(38)(100110)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   4%"];
+"(42)(101010)"->"(34)(100010)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   4%"];
+"(34)(100010)"->"(50)(110010)"
+"(34)(100010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL="Species\34.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(35)(100011)"->"(39)(100111)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(43)(101011)"->"(35)(100011)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(35)(100011)"->"(51)(110011)"
+"(35)(100011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\35.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(37)(100101)"->"(36)(100100)"
+"(36)(100100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\36.svg",shape=plaintext];
+"(37)(100101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\37.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(39)(100111)"->"(38)(100110)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(38)(100110)"->"(46)(101110)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(38)(100110)"->"(54)(110110)"
+"(38)(100110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\38.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(39)(100111)"->"(47)(101111)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(39)(100111)"->"(55)(110111)"
+"(39)(100111)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\39.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(40)(101000)"->"(41)(101001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(40)(101000)"->"(44)(101100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(56)(111000)"->"(40)(101000)"
+"(40)(101000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\40.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(41)(101001)"->"(45)(101101)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(57)(111001)"->"(41)(101001)"
+"(41)(101001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\41.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(43)(101011)"->"(42)(101010)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(42)(101010)"->"(46)(101110)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   2%"];
+"(50)(110010)"->"(42)(101010)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(42)(101010)"->"(58)(111010)"
+"(42)(101010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\42.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(43)(101011)"->"(47)(101111)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(51)(110011)"->"(43)(101011)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(43)(101011)"->"(59)(111011)"
+"(43)(101011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\43.svg",shape=plaintext];
+"(44)(101100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\44.svg",shape=plaintext];
+"(45)(101101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\45.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(46)(101110)"->"(54)(110110)"
+"(46)(101110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\46.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(47)(101111)"->"(55)(110111)"
+"(47)(101111)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\47.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(49)(110001)"->"(48)(110000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(52)(110100)"->"(48)(110000)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(48)(110000)"->"(56)(111000)"
+"(48)(110000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\48.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(53)(110101)"->"(49)(110001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(49)(110001)"->"(57)(111001)"
+"(49)(110001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\49.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(51)(110011)"->"(50)(110010)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(50)(110010)"->"(54)(110110)"
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=1,label="   97%"];
+"(58)(111010)"->"(50)(110010)"
+"(50)(110010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="Species\50.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(55)(110111)"->"(51)(110011)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(59)(111011)"->"(51)(110011)"
+"(51)(110011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL="Species\51.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(53)(110101)"->"(52)(110100)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(52)(110100)"->"(60)(111100)"
+"(52)(110100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\52.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(53)(110101)"->"(61)(111101)"
+"(53)(110101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\53.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(54)(110110)"->"(55)(110111)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(62)(111110)"->"(54)(110110)"
+"(54)(110110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\54.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(63)(111111)"->"(55)(110111)"
+"(55)(110111)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\55.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(56)(111000)"->"(57)(111001)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(60)(111100)"->"(56)(111000)"
+"(56)(111000)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\56.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(57)(111001)"->"(61)(111101)"
+"(57)(111001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\57.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   1%"];
+"(58)(111010)"->"(59)(111011)"
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(58)(111010)"->"(62)(111110)"
+"(58)(111010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\58.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(63)(111111)"->"(59)(111011)"
+"(59)(111011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="Species\59.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(61)(111101)"->"(60)(111100)"
+"(60)(111100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\60.svg",shape=plaintext];
+"(61)(111101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="Species\61.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   0%"];
+"(62)(111110)"->"(63)(111111)"
+"(62)(111110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\62.svg",shape=plaintext];
+"(63)(111111)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="Species\63.svg",shape=plaintext];
+}

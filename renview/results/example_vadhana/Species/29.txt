@@ -1,0 +1,33 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"(29)(011101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="29.svg",shape=plaintext];
+"(21)(010101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="21.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(2)",color=green,weight=2,arrowsize=1,label="   56   39%   0.00244509 mol/s    0.50"];
+"(21)(010101)"->"(29)(011101)"
+"(25)(011001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="25.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=green,weight=2,arrowsize=1,label="   67   58%   0.00365926 mol/s    0.50"];
+"(25)(011001)"->"(29)(011101)"
+"(28)(011100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="28.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   72   80%   0.00498713 mol/s    0.50"];
+"(29)(011101)"->"(28)(011100)"
+"(59)(111011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="59.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   75   1%   9.885e-05 mol/s    0.50"];
+"(59)(111011)"->"(29)(011101)"
+"(61)(111101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="61.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   76   0%   1.8e-07 mol/s    0.50"];
+"(29)(011101)"->"(61)(111101)"
+"(62)(111110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="62.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   77   19%   0.0012159 mol/s    0.50"];
+"(29)(011101)"->"(62)(111110)"
+}

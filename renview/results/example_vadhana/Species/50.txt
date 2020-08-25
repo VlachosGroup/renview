@@ -1,0 +1,36 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"(50)(110010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=orange,URL="50.svg",shape=plaintext];
+"(17)(010001)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="17.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   47   93%   45.28179837 mol/s    0.50"];
+"(50)(110010)"->"(17)(010001)"
+"(20)(010100)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="20.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   54   4%   2.16670565 mol/s    0.50"];
+"(50)(110010)"->"(20)(010100)"
+"(34)(100010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL="34.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   90   4%   1.99188418 mol/s    0.50"];
+"(34)(100010)"->"(50)(110010)"
+"(42)(101010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="42.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   111   2%   0.9855572 mol/s    0.50"];
+"(50)(110010)"->"(42)(101010)"
+"(51)(110011)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=lawngreen,URL="51.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   129   0%   0.40599979 mol/s    0.50"];
+"(51)(110011)"->"(50)(110010)"
+"(54)(110110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="54.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   130   0%   0.16914413 mol/s    0.50"];
+"(50)(110010)"->"(54)(110110)"
+"(58)(111010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="58.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(5)",color=green,weight=2,arrowsize=2,label="   131   95%   46.20532138 mol/s    0.50"];
+"(58)(111010)"->"(50)(110010)"
+}

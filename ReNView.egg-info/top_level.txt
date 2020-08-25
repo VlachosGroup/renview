@@ -1,1 +1,3 @@
-ReNView
+renview
+renview/GraphGenerator
+renview/Pathways

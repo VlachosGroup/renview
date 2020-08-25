@@ -1,0 +1,15 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"CC(S)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="46.svg",shape=plaintext];
+}

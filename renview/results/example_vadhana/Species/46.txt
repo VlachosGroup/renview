@@ -1,0 +1,27 @@
+digraph G {
+splines = true;
+graph [bgcolor=lightgray, resolution=64, fontname=Arial, fontcolor=blue, fontsize=36];
+node [fontsize=12];
+edge [fontsize=30];
+label = "Reaction Path Analysis";
+labelloc = "t";
+center=1;
+size="10,10";
+ranksep="0.25 equally";
+nodesep="0.25 equally";
+rankdir=LR;
+bgcolor=white;
+"(46)(101110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="46.svg",shape=plaintext];
+"(13)(001101)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=purple,URL="13.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=green,weight=2,arrowsize=1,label="   37   43%   0.00105218 mol/s    0.50"];
+"(13)(001101)"->"(46)(101110)"
+"(38)(100110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=dodgerblue,URL="38.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(1)",color=green,weight=2,arrowsize=1,label="   100   15%   0.00036886 mol/s    0.50"];
+"(38)(100110)"->"(46)(101110)"
+"(42)(101010)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="42.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(3)",color=green,weight=2,arrowsize=1,label="   110   40%   0.00097073 mol/s    0.50"];
+"(42)(101010)"->"(46)(101110)"
+"(54)(110110)"[shape=rectangle,style=filled,fontsize=35,width=0,height=0,fillcolor=springgreen,URL="54.svg",shape=plaintext];
+edge[dir="forward",style="setlinewidth(6)",color=green,weight=2,arrowsize=2,label="   120   100%   0.00239177 mol/s    0.50"];
+"(46)(101110)"->"(54)(110110)"
+}
