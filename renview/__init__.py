@@ -3,6 +3,8 @@
 ReNView
 """
 
+from .run import run
+
 ####
 #
 # setuptools likes to see a name for the package,
