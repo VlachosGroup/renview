@@ -6,7 +6,7 @@ The **Re**action **N**etwork **View**er (ReNView) generates a graphic representa
 Documentation
 -------------
 
-See our [documentation page](https://github.com/VlachosGroup/ReNView/wiki/Reaction-Network-Viewer-(ReNView)-Usage-Instructions) for examples, and equations used.
+See our [documentation page](https://github.com/VlachosGroup/ReNView/wiki/Documentation) for examples, and equations used.
 
 Developer
 ---------
