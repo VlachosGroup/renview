@@ -10,7 +10,7 @@ See our [documentation page](https://github.com/VlachosGroup/ReNView/wiki/Docume
 
 Developer
 ---------
-Udit Gupta (ugupta@udel.edu)
+Udit Gupta (uditgupta0912@gmail.com)
 
 Dependencies
 ------------
