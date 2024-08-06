@@ -7,7 +7,7 @@ from renview import Pathways as p
 
 def run(species_file, reactions_file, initial_reactant, reaction_cutoffrate,
         elements_desired, normalization, output_directory, generate_pathways,
-        pathway_file, image_directory):
+        pathway_file, image_directory, title="Reaction Path Analysis"):
     gg.input_species_file(species_file)
     gg.input_reactions_file(reactions_file)
     gg.input_initial_reactant(initial_reactant)
@@ -15,13 +15,13 @@ def run(species_file, reactions_file, initial_reactant, reaction_cutoffrate,
     gg.input_elements_desired(elements_desired)
     gg.input_normalization(normalization)
     gg.input_output_directory(output_directory)
-    gg.generate_visualizations()
+    gg.generate_visualizations(title=title)
     gg.erase_data()
     if generate_pathways:
         p.input_pathways_file(pathway_file)
         p.input_output_directory(output_directory)
         p.input_images_directory(image_directory)
-        p.generate_pathway_visualizations()
+        p.generate_pathway_visualizations(title=title)
 
 def run_for_omkm(omkm_directory, initial_reactant, elements_desired,
                  reaction_cutoffrate=1.e-9, normalization=2, generate_pathways=False):
